@@ -10,6 +10,7 @@ import org.joda.time.format.*;
 
 import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
+import com.hp.gagawa.java.elements.Html;
 
 
 public class TivooParser {
@@ -38,6 +39,8 @@ public class TivooParser {
 	
 	private static void writeToHtml(List remainingGames, PrintStream out) {
 		
+		Html html = new Html();
+		
 		for (Object game : remainingGames) {
 			
 			Element thisGame = (Element) game;
@@ -47,8 +50,22 @@ public class TivooParser {
 			link.setHref(thisGame.getChild("Description").getText()).setTarget("_blank").appendText(thisGame.getChild("Subject").getText());
 			                
 			div.appendChild(link);
-			out.println(div.write());
+			//out.println(div.write());
+			html.appendChild(div);
 		}
+		//out.println(html.write());
+		try {
+            
+            //Construct the BufferedWriter object
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("output.html"));
+            
+            //Start writing to the output stream
+            bufferedWriter.write(html.write());
+            bufferedWriter.close();
+        
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 		
 	}
 
