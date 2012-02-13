@@ -1,4 +1,5 @@
 import java.io.*;
+
 import java.util.*;
 import java.lang.Object;
 
@@ -7,10 +8,8 @@ import org.jdom.input.*;
 import org.joda.time.*;
 import org.joda.time.format.*;
 
-import com.hp.gagawa.java.Node;
 import com.hp.gagawa.java.elements.A;
 import com.hp.gagawa.java.elements.Div;
-import com.hp.gagawa.java.elements.H1;
 
 
 public class TivooParser {
