@@ -1,5 +1,6 @@
-import java.io.*;
+package src;
 
+import java.io.*;
 import java.util.*;
 import java.lang.Object;
 
